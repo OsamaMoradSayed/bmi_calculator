@@ -16,11 +16,11 @@ class _BmiScreenState extends State<BmiScreen> {
           'BMI Calculator',
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Expanded(
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
               child: Row(
                 children: [
                   Expanded(
@@ -34,14 +34,14 @@ class _BmiScreenState extends State<BmiScreen> {
                         children: [
                           Image(
                             image: AssetImage('assets/images/male.png'),
-                            width: 120.0,
-                            height: 120.0,
+                            width: 100.0,
+                            height: 100.0,
                             //color: Colors.blue,
                           ),
                           Text(
                             'Male',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontSize: 25.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -62,13 +62,13 @@ class _BmiScreenState extends State<BmiScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset('assets/images/female.png',
-                            width: 120.0,
-                            height: 120.0,
+                            width: 100.0,
+                            height: 100.0,
                           ),
                           Text(
                             'Female',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontSize: 25.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -79,8 +79,66 @@ class _BmiScreenState extends State<BmiScreen> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.grey[350],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'HEIGHT',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '180',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          'CM',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Slider(
+                        value: 120,
+                        max: 220,
+                        min: 60,
+                        onChanged: (value){  // بتديني قيمة اللي موجود في ال slider حالياً
+                          print(value.round());
+                        }
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
