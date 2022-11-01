@@ -126,6 +126,7 @@ class _BmiScreenState extends State<BmiScreen> {
                       ],
                     ),
                     Slider(
+                      //New Widget
                         value: 120,  // القيمة الابتدائية اللي هيبقي واقف عليها
                         max: 220,  // اقصي قيمة ليه
                         min: 60,  // اقل قيمة ليه
