@@ -11,6 +11,8 @@ class _BmiScreenState extends State<BmiScreen> {
 
   bool? isMale;
   double height = 120;
+  int weight = 40;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +186,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             ),
                           ),
                           Text(
-                            '25',
+                            '$age',
                             style: TextStyle(
                               fontSize: 35.0,
                               fontWeight: FontWeight.w900,
@@ -198,14 +200,22 @@ class _BmiScreenState extends State<BmiScreen> {
                             children: [
                               FloatingActionButton(
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
                                 child: Icon(
                                   Icons.remove
                                 ),
                               ),
                               FloatingActionButton(
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
                                 child: Icon(
                                   Icons.add
                                 ),
@@ -227,7 +237,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             ),
                           ),
                           Text(
-                            '25',
+                            '$weight',
                             style: TextStyle(
                               fontSize: 35.0,
                               fontWeight: FontWeight.w900,
@@ -238,14 +248,24 @@ class _BmiScreenState extends State<BmiScreen> {
                             children: [
                               FloatingActionButton(
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState(() {
+                                    weight--;
+                                  });
+
+                                },
                                 child: Icon(
                                   Icons.remove
                                 ),
                               ),
                               FloatingActionButton(
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState(() {
+
+                                  });
+                                  weight++;
+                                },
                                 child: Icon(
                                   Icons.add
                                 ),
