@@ -8,6 +8,9 @@ class BmiScreen extends StatefulWidget {
 }
 
 class _BmiScreenState extends State<BmiScreen> {
+
+  bool? isMale;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,28 +27,36 @@ class _BmiScreenState extends State<BmiScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.grey[350],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image(
-                            image: AssetImage('assets/images/male.png'),
-                            width: 100.0,
-                            height: 100.0,
-                            //color: Colors.blue,
-                          ),
-                          Text(
-                            'Male',
-                            style: TextStyle(
-                              fontSize: 25.0,
-                              fontWeight: FontWeight.bold,
+                    child: GestureDetector(// علشان اقدر اضغط علي الكونتينر
+                      onTap: (){
+                        setState(() {
+                          isMale = true;
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: isMale==true ? Colors.blue : Colors.grey[350]  ,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image(
+                              image: AssetImage('assets/images/male.png'),
+                              width: 100.0,
+                              height: 100.0,
+                              color: isMale == true ? Colors.white : Colors.black,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Male',
+                              style: TextStyle(
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
+                                color: isMale == true ? Colors.white : Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -53,26 +64,35 @@ class _BmiScreenState extends State<BmiScreen> {
                     width: 20.0,
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.grey[350],
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/images/female.png',
-                            width: 100.0,
-                            height: 100.0,
-                          ),
-                          Text(
-                            'Female',
-                            style: TextStyle(
-                              fontSize: 25.0,
-                              fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          isMale = false;
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: isMale == false ? Colors.blue : Colors.grey[350],
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/female.png',
+                              width: 100.0,
+                              height: 100.0,
+                              color: isMale == false ? Colors.white : Colors.black,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Female',
+                              style: TextStyle(
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.bold,
+                                color: isMale == false ? Colors.white : Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -249,7 +269,7 @@ class _BmiScreenState extends State<BmiScreen> {
                     color: Colors.white,
                   ),
                 ),),
-          )
+          ),
         ],
       ),
     );
