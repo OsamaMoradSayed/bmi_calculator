@@ -109,7 +109,7 @@ class _BmiScreenState extends State<BmiScreen> {
                         Text(
                           '180',
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 35.0,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -133,6 +133,104 @@ class _BmiScreenState extends State<BmiScreen> {
                         onChanged: (value){  // بتديني قيمة اللي موجود في ال slider حالياً
                           print(value.round());
                         }
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.grey[350],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'AGE',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '25',
+                            style: TextStyle(
+                              fontSize: 35.0,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                mini: true,  // في حجمين الافتراضي والاصغر ده
+                                onPressed: (){},
+                                child: Icon(
+                                  Icons.remove
+                                ),
+                              ),
+                              FloatingActionButton(
+                                mini: true,  // في حجمين الافتراضي والاصغر ده
+                                onPressed: (){},
+                                child: Icon(
+                                  Icons.add
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'WEIGHT',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '25',
+                            style: TextStyle(
+                              fontSize: 35.0,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FloatingActionButton(
+                                mini: true,  // في حجمين الافتراضي والاصغر ده
+                                onPressed: (){},
+                                child: Icon(
+                                  Icons.remove
+                                ),
+                              ),
+                              FloatingActionButton(
+                                mini: true,  // في حجمين الافتراضي والاصغر ده
+                                onPressed: (){},
+                                child: Icon(
+                                  Icons.add
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
