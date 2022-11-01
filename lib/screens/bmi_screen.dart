@@ -10,6 +10,7 @@ class BmiScreen extends StatefulWidget {
 class _BmiScreenState extends State<BmiScreen> {
 
   bool? isMale;
+  double height = 120;
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +128,7 @@ class _BmiScreenState extends State<BmiScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '180',
+                          '${height.round()}',
                           style: TextStyle(
                             fontSize: 35.0,
                             fontWeight: FontWeight.w900,
@@ -147,11 +148,13 @@ class _BmiScreenState extends State<BmiScreen> {
                     ),
                     Slider(
                       //New Widget
-                        value: 120,  // القيمة الابتدائية اللي هيبقي واقف عليها
+                        value: height,  // القيمة الابتدائية اللي هيبقي واقف عليها
                         max: 220,  // اقصي قيمة ليه
                         min: 60,  // اقل قيمة ليه
                         onChanged: (value){  // بتديني قيمة اللي موجود في ال slider حالياً
-                          print(value.round());
+                          setState(() {
+                            height = value;
+                          });
                         }
                     ),
                   ],
