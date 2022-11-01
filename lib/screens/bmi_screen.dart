@@ -237,6 +237,19 @@ class _BmiScreenState extends State<BmiScreen> {
               ),
             ),
           ),
+          Container(
+            height: 50,
+            color: Colors.blue,
+            width: double.infinity,
+            child: MaterialButton(
+                onPressed: (){},
+                child: Text(
+                  'CALCULATE',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),),
+          )
         ],
       ),
     );
