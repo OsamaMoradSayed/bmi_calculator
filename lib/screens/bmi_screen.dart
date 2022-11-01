@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/bmi_result_screen.dart';
 import 'package:flutter/material.dart';
 
 class BmiScreen extends StatefulWidget {
@@ -199,6 +200,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               FloatingActionButton(
+                                heroTag: 'age-',
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
                                 onPressed: (){
                                   setState(() {
@@ -210,6 +212,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                 ),
                               ),
                               FloatingActionButton(
+                                heroTag: 'age+',
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
                                 onPressed: (){
                                   setState(() {
@@ -247,6 +250,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               FloatingActionButton(
+                                heroTag: 'weight-',
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
                                 onPressed: (){
                                   setState(() {
@@ -259,6 +263,7 @@ class _BmiScreenState extends State<BmiScreen> {
                                 ),
                               ),
                               FloatingActionButton(
+                                heroTag: 'weight+',
                                 mini: true,  // في حجمين الافتراضي والاصغر ده
                                 onPressed: (){
                                   setState(() {
@@ -285,7 +290,22 @@ class _BmiScreenState extends State<BmiScreen> {
             color: Colors.blue,
             width: double.infinity,
             child: MaterialButton(
-                onPressed: (){},
+                onPressed: (){
+                  setState(() {
+                    double result = weight / ((height/100)*2);
+                    Navigator.push(context,
+                        MaterialPageRoute(
+                            builder: (context) => BmiResultScreen(
+                                isMale: isMale!,
+                                height: height.round(),
+                                age: age,
+                                weight: weight,
+                                result: result,
+                            ),
+                        ),
+                    );
+                  });
+                },
                 child: Text(
                   'CALCULATE',
                   style: TextStyle(
